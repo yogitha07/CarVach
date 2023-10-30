@@ -36,9 +36,6 @@ class InventoryItem(BaseModel):
 
 
 
-# conn = psycopg2.connect(conn_string)
-# print("Connection established")
-
 # API endpoint to create the table
 @app.post("/create-table/")
 async def create_table():
@@ -111,38 +108,3 @@ async def delete_item(item_id: int):
     conn.close()
     return {"message": "Item deleted successfully"}
 
-# cursor = conn.cursor()
-
-# # Drop previous table of same name if one exists
-
-# cursor.execute("DROP TABLE IF EXISTS catalogue;")
-# print("Finished dropping table (if existed)")
-
-# # Create a table
-
-# cursor.execute("CREATE TABLE catalogue (id serial PRIMARY KEY, name VARCHAR(50), quantity INTEGER);")
-# print("Finished creating table")
-
-# # Insert some data into the table
-
-# cursor.execute("INSERT INTO catalogue (name, quantity) VALUES (%s, %s);", ("banana", 150))
-# cursor.execute("INSERT INTO catalogue (name, quantity) VALUES (%s, %s);", ("orange", 154))
-# cursor.execute("INSERT INTO catalogue (name, quantity) VALUES (%s, %s);", ("apple", 100))
-# print("Inserted 3 rows of data")
-
-
-# # Fetch all rows from table
-
-# cursor.execute("SELECT * FROM catalogue;")
-# rows = cursor.fetchall()
-
-# # Print all rows
-
-# for row in rows:
-#     print("Data row = (%s, %s, %s)" %(str(row[0]), str(row[1]), str(row[2])))
-
-# # Clean up
-
-# conn.commit()
-# cursor.close()
-# conn.close()
